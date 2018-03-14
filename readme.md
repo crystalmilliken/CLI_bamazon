@@ -1,22 +1,22 @@
-:EMOJICODE:
+
 ## Overview
 
 This application is simulating an Amazon-like storefront via the :computer: command line. The app will take in orders from customers and deplete stock from the store's inventory. It tracks product sales across the store's departments and provides a summary of the highest-grossing departments in the store.
 
 ##Customer View
-* Allows cutomer to purchase products from the store.
+* Allows cutomer to :dollar: purchase products from the store. 
 
 ##Manager View
-* View Products for Sale
+* :mag: View Products for :heavy_dollar_sign: Sale
     
-* View Low Inventory
+* :mag: View Low Inventory
     
-* Add to Inventory
+* :heavy_plus_sign: Add to Inventory
     
-* Add New Product
+* :heavy_plus_sign: Add New Product
 
 #Supervisor View
-* View Product Sales by Department
+* :mag: View Product Sales by Department :moneybag:
    
 * Create New Department
 
