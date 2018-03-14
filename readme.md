@@ -1,6 +1,7 @@
+:EMOJICODE:
 ## Overview
 
-This application is simulating an Amazon-like storefront via the command line. The app will take in orders from customers and deplete stock from the store's inventory. It tracks product sales across the store's departments and provides a summary of the highest-grossing departments in the store.
+This application is simulating an Amazon-like storefront via the :computer: command line. The app will take in orders from customers and deplete stock from the store's inventory. It tracks product sales across the store's departments and provides a summary of the highest-grossing departments in the store.
 
 ##Customer View
 * Allows cutomer to purchase products from the store.
