@@ -8,10 +8,12 @@ var connection = mysql.createConnection({
     password: "root",
     database: "bamazon"
 })
+
 connection.connect(function () {
     start();
-}
-)
+});
+
+// Begins application with prompt
 function start() {
     const departmentNames = [];
     connection.query('SELECT department_name FROM departments', (err, res) => {
@@ -49,11 +51,15 @@ function start() {
         }
     })
 }
+
+// Gets product list
 function getList() {
     connection.query('SELECT * FROM products', (err, res) => {
         chooseItemToUpdate(res)
     });
 }
+
+// Gets all products for sale and writes to console
 function viewProductsSale() {
     connection.query('SELECT * FROM products', (err, res) => {
         res.map((x) => {
@@ -70,6 +76,8 @@ function viewProductsSale() {
     });
 
 }
+
+//Gets all products with inventory less than 5
 function viewLowInventory() {
     connection.query('SELECT * FROM products WHERE stock_quantity < 5', (err, res) => {
         res.map((x) => {
@@ -85,6 +93,8 @@ function viewLowInventory() {
         start();
     });
 }
+
+// Takes in list, creates array of items to be used in inquirer
 function chooseItemToUpdate(list) {
     const itemList = [];
     let id;
@@ -112,6 +122,8 @@ function chooseItemToUpdate(list) {
 
     })
 }
+
+// Takes in item id and how many to add
 function addToInventory(id, amountToAdd) {
     amountToAdd = parseInt(amountToAdd);
     connection.query(`UPDATE products SET stock_quantity = (stock_quantity + ${amountToAdd}) WHERE item_id = ${id}`, function (err, res) {
@@ -119,6 +131,8 @@ function addToInventory(id, amountToAdd) {
         start();
     })
 }
+
+// Takes in department name to add product to
 function addNewProduct(departmentNames) {
     inquirer.prompt([
         {
@@ -159,6 +173,8 @@ function addNewProduct(departmentNames) {
     })
 
 }
+
+// Gets all sales totals
 function viewSalesTotals() {
     connection.query(`SELECT * FROM products WHERE product_sales > 0`, function (err, res) {
         let totalSales = 0;
